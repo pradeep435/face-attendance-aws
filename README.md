@@ -6,10 +6,10 @@ This project implements a real-time attendance tracking system using face recogn
 
 ## 🚀 Features
 
-- Upload and index face images into Rekognition collection
-- Match test/live images against the Rekognition collection
-- Log successful face matches (attendance) into an RDS MySQL database
-- Uses secure and modular AWS architecture with IAM role-based access
+- Upload and index face images into Rekognition collection  
+- Match test/live images against the Rekognition collection  
+- Log successful face matches (attendance) into an RDS MySQL database  
+- Uses secure and modular AWS architecture with IAM role-based access  
 
 ---
 
@@ -20,7 +20,7 @@ This project implements a real-time attendance tracking system using face recogn
 - **AWS Rekognition** – Performs face indexing and matching  
 - **AWS RDS (MySQL)** – Stores attendance logs  
 - **IAM** – Manages access permissions  
-- **Python** – Backend logic using `boto3` and `mysql-connector-python`
+- **Python** – Backend logic using `boto3` and `mysql-connector-python`  
 
 ---
 
@@ -45,8 +45,8 @@ pip install -r requirements.txt
 
 ### 🧠 Index a New Face to Rekognition
 
-1. Open `index_face_enroll.py`
-2. Set `image_file` and `image_name` to your new image and person’s name
+1. Open `index_face_enroll.py`  
+2. Set `image_file` and `image_name` to your new image and person’s name  
 3. Run the script:
 
 ```bash
@@ -59,8 +59,8 @@ python3 index_face_enroll.py
 
 ### 📝 Run the Final Attendance Logger
 
-1. Open `final_attendance_logger.py`
-2. Set `image_file` and `image_name` to your test image
+1. Open `final_attendance_logger.py`  
+2. Set `image_file` and `image_name` to your test image  
 3. Run:
 
 ```bash
@@ -78,9 +78,31 @@ python3 final_attendance_logger.py
 
 Ensure your EC2 instance is attached with an IAM Role that has the following policies:
 
-- `AmazonEC2FullAccess`
-- `AmazonS3FullAccess`
-- `AmazonRDSFullAccess`
-- `AmazonRekognitionFullAccess`
-- `AmazonSNSFullAccess`
+- `AmazonEC2FullAccess`  
+- `AmazonS3FullAccess`  
+- `AmazonRDSFullAccess`  
+- `AmazonRekognitionFullAccess`  
+- `AmazonSNSFullAccess`  
 - `AWSLambda_FullAccess`
+
+---
+
+## 📸 Screenshots
+
+### 🟢 1. AWS RDS MySQL Database Configuration
+![RDS Config](screenshots/rds-config.png)
+
+### 🟣 2. Uploading Image to EC2 using SCP
+![SCP Upload](screenshots/scp-upload.png)
+
+### 🔵 3. Attendance Records in MySQL via EC2
+![Attendance Table](screenshots/attendance_query.png)
+
+### 🔴 4. Indexing Face and Attendance Logging Output
+![Index and Attendance](screenshots/index_and_attendance.png)
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
